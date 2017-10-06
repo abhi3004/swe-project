@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Medical Solutions For Rural India</title>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="js/clinic.js"></script>
+
+    
+</head>
+
+<body ng-app="clinic">
+
+    <div id="wrapper">
+
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                       Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="#!/addpatient">Add Patient</a>
+                </li>
+                <li>
+                    <a href="#!/docschedule">Prepare Dr.Schedule</a>
+                </li>
+                <li>
+                    <a href="#!/inventory">Inventory</a>
+                </li>
+                <li>
+                    <a href="#">Send Distress Signal</a>
+                </li>
+                <li>
+                    <a href="#">Patient History</a>
+                </li>
+                <li>
+                    <a href="#">Patient Appointments</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Clinic Dashboard</h1>
+               
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> </a>
+            </div>
+            <div ng-view></div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/vendor/jquery/jquery.min.js"></script>
+    <script src="js/vendor/popper/popper.min.js"></script>
+    <script src="js/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

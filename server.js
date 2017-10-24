@@ -24,8 +24,8 @@ app.get('/registerlab',function(req,res){
 app.get('/clinicdashboard',function(req,res){
   res.render('clinicdashboard.html');
 });
-app.get('/error',function(req,res){
-  res.send("LOL SOME ERROR OCCURED BOO!!!");
+app.get('/modal',function(req,res){
+  res.render('modal.html');
 });
 
 var path=require('path');
@@ -34,7 +34,7 @@ var port = process.env.PORT || 3000
 app.listen(port, function() {
     console.log(" http://localhost:" + port);
 });
-
+/*
 var vcapLocal;
 try {
   vcapLocal = require('./vcap-local.json');
@@ -70,13 +70,29 @@ clinics.insert({ "name" : name ,"address":address,"pin":pin, "district":district
 });
  res.end();
 });
+
+
 app.post('/api/clinic/login',function(req,res){
   var email=req.body.email;
   var password=req.body.password;
   var clinics=cloudant.db.use('clinics');
-  
-  res.end(response);
-});
+  var ans;
+  clinics.index(function(er, result) {
+  if (er) {
+    throw er;
+  }
+ans=result.indexes.length;
+  console.log('The database has %d indexes', result.indexes.length);
+  for (var i = 0; i < result.indexes.length; i++) {
+    console.log('  %s (%s): %j', result.indexes[i].name, result.indexes[i].type, result.indexes[i].def);
+  }
 
+  result.should.have.a.property('indexes').which.is.an.Array;
+  done();
+});
+res.end(ans);
+});
+*/
+var firebase=require('firebase');
 
 

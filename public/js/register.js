@@ -20,9 +20,8 @@ function regClinicCtrl($scope,$http,$window){
 
     $http.post('/api/clinic/post', JSON.stringify(data)).then(function (response) {
     if (response.data){
-        $window.location.href = '/';
+       
     console.log("Post Data Submitted Successfully!");}
-
     }
     , function (response) {
     console.log("Service not Exists");
@@ -33,20 +32,30 @@ function regClinicCtrl($scope,$http,$window){
     });
 
 };
-regClinic.finddata=function(){
-    data={};
-    $http.post('/api/clinic/login', JSON.stringify(data)).then(function (response) {
-if (response.data){
+
     
-console.log("Post Data Submitted Successfully!");}
+    
+    regClinic.finddata = function (email,password) {
+    data = {
+    
+    email:email,
+    password:password
+    };
+    console.log(data);
 
+    $http.post('/api/clinic/login', JSON.stringify(data)).then(function (response) {
+    if (response.data){
+       
+    console.log("Post Data Submitted Successfully!");
+    console.log(response.data);
 }
-, function (response) {
-console.log("Service not Exists");
-$scope.statusval = response.status;
-$scope.statustext = response.statusText;
-$scope.headers = response.headers();
+    }
+    , function (response) {
+    console.log("Service not Exists");
+    $scope.statusval = response.status;
+    $scope.statustext = response.statusText;
+    $scope.headers = response.headers();
 
-});
-}
-}
+    });
+    }}
+ 
